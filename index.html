@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Formulário utilizando html, css , bootstrap e validação">
+  <meta name="author" content="Leandro Gustavo Neis">
+  <title>Formulário</title>
+
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body class="text-center">
+
+  <main class="formulario-cadastro">
+    <form>
+
+      <h1 class="h3 mb-3 fw-normal">Novo Cadastro</h1>
+
+      <div class="form-floating">
+        <input type="text" class="form-control" id="nome_completo" placeholder="Digite o nome completo" required>
+        <label for="nome_completo">Nome Completo</label>
+      </div>
+      <div class="form-floating">
+        <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+        <label for="email">Email</label>
+      </div>
+      <div class="form-floating">
+        <input type="tel" class="form-control" id="tel" name="tel" placeholder="(99)99999-9999"  required>
+        <label for="telefone">Telefone</label>
+      </div>
+      <div class="form-floating">
+        <input type="text" class="form-control" id="cpf" placeholder="000.000.000-00" required>
+        <label for="cpf">CPF</label>
+      </div>
+
+      <br>
+      <div class="d-flex">
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Enviar</button>
+        <button class="w-100 btn btn-lg btn-danger" type="reset">Limpar</button>
+      </div>
+    </form>
+  </main>
+</body>
+
+</html>
