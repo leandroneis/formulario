@@ -25,27 +25,81 @@
       <div class="form-floating">
         <input type="text" class="form-control" id="nome_completo" placeholder="Digite o nome completo" required>
         <label for="nome_completo">Nome Completo</label>
+        <small id="erro-nome" class="text-danger"></small>
       </div>
       <div class="form-floating">
         <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
         <label for="email">Email</label>
+        <small id="erro-email" class="text-danger"></small>
       </div>
       <div class="form-floating">
-        <input type="tel" class="form-control" id="tel" name="tel" placeholder="(99)99999-9999"  required>
+        <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="(99)99999-9999"  required>
         <label for="telefone">Telefone</label>
+        <small id="erro-telefone" class="text-danger"></small>
       </div>
       <div class="form-floating">
-        <input type="text" class="form-control" id="cpf" placeholder="000.000.000-00" required>
+        <input type="text" class="form-control" id="cpf" name="cpf" placeholder="00000000000" required>
         <label for="cpf">CPF</label>
+        <small id="erro-cpf" class="text-danger"></small>
       </div>
 
       <br>
       <div class="d-flex">
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Enviar</button>
-        <button class="w-100 btn btn-lg btn-danger" type="reset">Limpar</button>
+        <button class="w-100 btn btn-lg btn-primary" type="submit" onclick="validar()">Enviar</button>
+        <button class="w-100 btn btn-lg btn-danger" type="reset" onclick="limpar()">Limpar</button>
       </div>
     </form>
   </main>
+
+
+  <script>
+
+    function limpar(){
+      document.getElementById('erro-nome').innerHTML="";
+      document.getElementById('erro-email').innerHTML="";
+      document.getElementById('erro-telefone').innerHTML="";
+      document.getElementById('erro-cpf').innerHTML="";
+      
+    }
+    function validar(){
+      var nome = document.getElementById('nome_completo').value;
+      var email= document.getElementById('email').value;
+      var telefone = document.getElementById('telefone').value;
+      var cpf = document.getElementById('cpf').value;
+
+      if(nome == ""){
+        document.getElementById('erro-nome').innerHTML = "Nome é um campo obrigatório!";
+        document.getElementById('nome').focus();
+        return false;
+      }else{
+        document.getElementById('erro-nome').innerHTML = "";
+      }
+
+      if(email == "" || !email.includes("@")){
+        document.getElementById('erro-email').innerHTML = "E-mail inválido ou em branco!";
+        document.getElementById('email').focus();
+        return false;
+      }else{
+        document.getElementById('erro-email').innerHTML = "";
+      }
+
+      if(telefone == "" || telefone.length < 11){
+        document.getElementById('erro-telefone').innerHTML = "Telefone inválido. Favor digitar um número válido com até 11 números.";
+        document.getElementById('telefone').focus();
+        return false;
+      }else{
+        document.getElementById('erro-telefone').innerHTML = "";
+      }
+
+      if(cpf == "" || cpf.length < 11){
+        document.getElementById('erro-cpf').innerHTML = "CPF inválido. Favor digitar um cpf com 11 digitos."; 
+        document.getElementById('cpf').focus();
+        return false;
+      }else{
+        document.getElementById('erro-cpf').innerHTML = "";
+      }
+    }
+  </script>
 </body>
 
 </html>
